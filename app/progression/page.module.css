@@ -1,0 +1,428 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROGRESSION PAGE - Styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  color: var(--text-muted);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--accent-primary);
+  color: #fff;
+}
+
+/* Overview Content */
+.overviewContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.statCardLarge {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.statIcon {
+  font-size: 2rem;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValueLarge {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.statLabelLarge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Comparaison S-1 Card */
+.comparisonCard {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(232, 93, 4, 0.08) 100%);
+  border: 1px solid rgba(232, 93, 4, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.comparisonCard h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.comparisonItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+}
+
+.comparisonLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.comparisonValues {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.comparisonCurrent {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.comparisonVs {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.comparisonPrevious {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.comparisonChange {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.comparisonChange.positive {
+  background: var(--success-dim);
+  color: var(--success);
+}
+
+.comparisonChange.negative {
+  background: var(--danger-dim);
+  color: var(--danger);
+}
+
+.highlights {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--bg-elevated);
+}
+
+.highlight {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: var(--space-xs) 0;
+  padding: var(--space-sm);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+/* Legacy weekly card (keep for compatibility) */
+.weeklyCard {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.weeklyCard h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.weeklyChange {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.weeklyChange .positive {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.weeklyChange .negative {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--danger);
+}
+
+.weeklyLabel {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Suggestions Card */
+.suggestionsCard {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(255, 186, 8, 0.08) 100%);
+  border: 1px solid rgba(255, 186, 8, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.suggestionsCard h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-md);
+}
+
+.suggestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.suggestionItem {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  padding: var(--space-sm);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+/* History Content */
+.historyContent {
+  min-height: 200px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+.emptyState p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.historyItem {
+  display: flex;
+  gap: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.historyDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+  padding-right: var(--space-md);
+  border-right: 1px solid var(--bg-elevated);
+}
+
+.historyDay {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.historyFullDate {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.historyDetails {
+  flex: 1;
+}
+
+.historyHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.historyIcon {
+  font-size: 1.25rem;
+}
+
+.historyTitle {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.historyMeta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.historyNotes {
+  font-size: 0.8rem;
+  color: var(--accent-secondary);
+  margin: var(--space-xs) 0 0 0;
+  font-style: italic;
+}
+
+/* Milestones Content */
+.milestonesContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.milestonesSection h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.milestonesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.milestoneCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.milestoneCard.achieved {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(48, 209, 88, 0.1) 100%);
+  border: 1px solid rgba(48, 209, 88, 0.2);
+}
+
+.milestoneCard.pending {
+  opacity: 0.6;
+}
+
+.milestoneIcon {
+  font-size: 1.5rem;
+}
+
+.milestoneInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.milestoneTitle {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.milestoneDesc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.milestoneCheck {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--success);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+}

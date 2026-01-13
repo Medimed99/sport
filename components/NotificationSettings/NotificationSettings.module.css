@@ -1,0 +1,160 @@
+.container {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.notSupported,
+.permissionRequest {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.notSupported p,
+.permissionRequest p {
+  margin: var(--space-sm) 0;
+}
+
+.permissionRequest h3 {
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.permissionRequest .btn {
+  margin-top: var(--space-lg);
+}
+
+/* Settings */
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--bg-elevated);
+}
+
+.setting:last-of-type {
+  border-bottom: none;
+}
+
+.settingInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingLabel {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.settingDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Toggle */
+.toggle {
+  width: 52px;
+  height: 28px;
+  background: var(--bg-elevated);
+  border: none;
+  border-radius: var(--radius-full);
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.toggle.toggleOn {
+  background: var(--success);
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle.toggleOn .toggleKnob {
+  transform: translateX(24px);
+}
+
+/* Time input */
+.timeInput {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-interactive);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.timeInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* Days section */
+.daysSection {
+  padding: var(--space-md) 0;
+}
+
+.daysSection .settingLabel {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.daysGrid {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.dayBtn {
+  flex: 1;
+  padding: var(--space-sm);
+  background: var(--bg-elevated);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dayBtn:hover {
+  background: var(--bg-interactive);
+  color: var(--text-primary);
+}
+
+.dayActive {
+  background: var(--accent-glow);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* Test button */
+.testBtn {
+  margin-top: var(--space-lg);
+}
