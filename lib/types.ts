@@ -67,10 +67,14 @@ export interface TempoPhase {
 
 export function parseTempo(tempo: string): TempoPhase[] {
   const [exc, pauseBas, conc, pauseHaut] = tempo.split("-").map(Number);
-  return [
+
+  // Typage explicite pour conserver les littéraux du discriminant `name`
+  const phases: TempoPhase[] = [
     { name: "excentrique", duration: exc, label: "Descente" },
     { name: "pause_bas", duration: pauseBas, label: "Pause" },
     { name: "concentrique", duration: conc, label: "Remontée" },
     { name: "pause_haut", duration: pauseHaut, label: "Pause" },
-  ].filter((p) => p.duration > 0);
+  ];
+
+  return phases.filter((p) => p.duration > 0);
 }
