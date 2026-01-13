@@ -91,13 +91,13 @@ export async function showNotification(
       data: options?.data,
       vibrate: [200, 100, 200],
       requireInteraction: false,
-    });
+    } as any);
   } catch (error) {
     // Fallback vers notification simple si service worker non disponible
     new Notification(title, {
       body,
       icon: options?.icon || "/icons/icon-192.png",
-    });
+    } as any);
   }
 }
 
