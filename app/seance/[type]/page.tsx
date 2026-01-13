@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getSeanceByType } from "@/lib/exercises";
 import { Serie, ExerciceLog, SeanceType } from "@/lib/types";
 import { calculerTonnageSeance, formaterTonnage } from "@/lib/calculations";
+import { saveLocalSeance } from "@/lib/localStorage";
 import { TempoEngine } from "@/components/TempoEngine";
 import { SetLogger } from "@/components/SetLogger";
 import { ExerciseCard } from "@/components/ExerciseCard";
@@ -125,7 +126,20 @@ export default function SeancePage({ params }: PageProps) {
 
   // Terminer la séance
   const finishSession = () => {
-    // TODO: Sauvegarder dans Firebase
+    // Calculer le tonnage total final
+    const totalTonnage = getTotalTonnage();
+    
+    // Sauvegarder la séance dans le stockage local
+    saveLocalSeance({
+      date: new Date().toISOString(),
+      type: seance.type,
+      exercices: exercicesLog,
+      tonnageTotal: totalTonnage,
+      notes: sessionNotes || undefined,
+      mood: sessionMood || undefined,
+    });
+    
+    // Rediriger vers l'accueil
     router.push("/");
   };
 
