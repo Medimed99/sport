@@ -59,6 +59,18 @@ export default function Dashboard() {
     lastWorkout: null,
     completedThisWeek: 0,
     plannedThisWeek: 6,
+    comparison: {
+      thisWeekTonnage: 0,
+      lastWeekTonnage: 0,
+      tonnageChange: 0,
+      tonnageChangePercent: 0,
+      thisWeekSessions: 0,
+      lastWeekSessions: 0,
+      thisWeekDistance: 0,
+      lastWeekDistance: 0,
+      distanceChange: 0,
+      highlights: [],
+    },
   });
 
   useEffect(() => {
@@ -85,7 +97,7 @@ export default function Dashboard() {
             <span className={styles.raceIcon}>🏆</span>
             <div>
               <h2 className={styles.raceTitle}>Objectif 9km</h2>
-              <p className={styles.raceDate}>14 février 2025</p>
+              <p className={styles.raceDate}>14 février 2026</p>
             </div>
           </div>
           
