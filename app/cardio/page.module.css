@@ -214,3 +214,63 @@
   color: var(--text-muted);
   text-transform: uppercase;
 }
+
+/* Distance Input */
+.distanceInput {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.distanceInput h2 {
+  margin-bottom: var(--space-md);
+}
+
+.distanceControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.distanceBtn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-primary);
+  border-radius: var(--radius-full);
+  color: var(--accent-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.distanceBtn:hover {
+  background: var(--accent-glow);
+}
+
+.distanceBtn:active {
+  transform: scale(0.95);
+}
+
+.distanceDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.distanceValue {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.distanceUnit {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CardioMode } from "@/lib/types";
+import { saveLocalCardio } from "@/lib/localStorage";
 import { CardioTracker } from "@/components/CardioTracker";
 import styles from "./page.module.css";
 
@@ -13,6 +14,7 @@ export default function CardioPage() {
   const [viewState, setViewState] = useState<ViewState>("select");
   const [selectedMode, setSelectedMode] = useState<CardioMode | null>(null);
   const [sessionDuration, setSessionDuration] = useState(0);
+  const [distanceKm, setDistanceKm] = useState(0);
   const [rpeGastrique, setRpeGastrique] = useState(1);
 
   const startSession = (mode: CardioMode) => {
@@ -26,12 +28,15 @@ export default function CardioPage() {
   };
 
   const handleRpeSubmit = () => {
-    // TODO: Sauvegarder dans Firebase
-    console.log("Session cardio:", {
-      mode: selectedMode,
+    // Sauvegarder la session cardio
+    saveLocalCardio({
+      date: new Date().toISOString(),
+      mode: selectedMode || "zone2",
       dureeMinutes: sessionDuration,
-      rpeGastrique,
+      distanceKm: distanceKm,
+      rpeGastrique: rpeGastrique,
     });
+    
     setViewState("complete");
   };
 
@@ -122,7 +127,30 @@ export default function CardioPage() {
     return (
       <div className="page container">
         <div className={styles.rpeScreen}>
-          <h2>Comment te sens-tu ?</h2>
+          {/* Distance parcourue */}
+          <div className={styles.distanceInput}>
+            <h2>Distance parcourue</h2>
+            <div className={styles.distanceControl}>
+              <button 
+                className={styles.distanceBtn}
+                onClick={() => setDistanceKm(Math.max(0, distanceKm - 0.5))}
+              >
+                −
+              </button>
+              <div className={styles.distanceDisplay}>
+                <span className={styles.distanceValue}>{distanceKm.toFixed(1)}</span>
+                <span className={styles.distanceUnit}>km</span>
+              </div>
+              <button 
+                className={styles.distanceBtn}
+                onClick={() => setDistanceKm(distanceKm + 0.5)}
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <h2 style={{ marginTop: "var(--space-xl)" }}>Comment te sens-tu ?</h2>
           <p className="text-secondary">RPE Gastrique (nausée)</p>
 
           <div className={styles.rpeScale}>
@@ -171,14 +199,12 @@ export default function CardioPage() {
 
           <div className={styles.completeStats}>
             <div className={styles.completeStat}>
-              <span className={styles.completeValue}>{sessionDuration}</span>
-              <span className={styles.completeLabel}>minutes</span>
+              <span className={styles.completeValue}>{distanceKm.toFixed(1)}</span>
+              <span className={styles.completeLabel}>km</span>
             </div>
             <div className={styles.completeStat}>
-              <span className={styles.completeValue}>
-                {selectedMode === "intervalles" ? "Int." : "Z2"}
-              </span>
-              <span className={styles.completeLabel}>mode</span>
+              <span className={styles.completeValue}>{sessionDuration}</span>
+              <span className={styles.completeLabel}>minutes</span>
             </div>
             <div className={styles.completeStat}>
               <span
